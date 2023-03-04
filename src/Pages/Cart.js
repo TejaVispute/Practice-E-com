@@ -15,7 +15,10 @@ function Cart() {
                     cart.map((product) => (
                         <>
                             <h1>{product.name}</h1>
-                            <h1>{product.quantity}</h1>
+                            <h1>Product Quantity:-{product.quantity}</h1>
+                            <img width={200} src={product.image} alt="" />
+                            <button className='btn btn-outline-dark me-2'>+</button>
+                            <button className='btn btn-outline-dark'>-</button>
                         </>
                     ))
                 }

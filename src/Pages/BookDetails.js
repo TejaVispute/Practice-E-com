@@ -4,8 +4,8 @@ import { useBookContext } from '../Context/BooksContext';
 
 function BookDetails() {
     let { id } = useParams();
-    let { cart, setCart } = useBookContext();
-    let { data } = useBookContext();
+    let { cart, setCart, data } = useBookContext();
+    // let {  } = useBookContext();
 
     let findData = data.find((e) => e._id === id);
     // console.log(findData)

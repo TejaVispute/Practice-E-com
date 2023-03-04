@@ -1,9 +1,12 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { useBookContext } from '../Context/BooksContext';
-
+import LoginButton from './LoginButton';
+import LogoutButton from './LogoutButton';
+import { useAuth0 } from '@auth0/auth0-react';
 function Navbar() {
     let { setSearch } = useBookContext();
+    let { user } = useAuth0();
     return (
         <div>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -32,6 +35,10 @@ function Navbar() {
                             <input class="form-control me-2" onChange={(e) => setSearch(e.target.value)} type="search" placeholder="Search" aria-label="Search" />
                             <NavLink to='/cart'><div><i style={{ color: "white", fontSize: "2rem" }} class="fa-solid fa-cart-shopping"></i></div></NavLink>
                         </div>
+
+                        {user && <div><LogoutButton /></div>}
+                        {!user && <div> <LoginButton /></div>}
+
                     </div>
                 </div>
             </nav>

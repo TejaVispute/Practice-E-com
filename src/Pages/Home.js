@@ -1,14 +1,15 @@
 import React from 'react'
 import { useEffect } from 'react';
 import ProductCard from '../Components/ProductCard';
-
+import { useAuth0 } from '@auth0/auth0-react';
 function Home() {
 
-    useEffect(() => {
-
-    })
+    let { user } = useAuth0();
     return (
-        <h1>hello</h1>
+        <>
+            {user && <div>{JSON.stringify(user)}</div>}
+            {!user && <div>Please Login</div>}
+        </>
 
     )
 }
